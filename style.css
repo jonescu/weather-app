@@ -79,10 +79,6 @@ body > h1 {
     border-radius: 5px;
 }
 
-.main-container > .search-container > button:hover {
-    cursor: pointer;
-}
-
 /* Data container */
 
 .main-container > .data-container {
@@ -99,4 +95,10 @@ body > h1 {
 #farenheit-button, #celsius-button {
     display: none;
     margin-top: 1rem;
+}
+
+#farenheit-button:hover, #celsius-button:hover, .search-container>button:hover {
+    cursor: pointer;
+    transform: scale(0.98);
+    background: #010304;
 }
