@@ -102,3 +102,30 @@ body > h1 {
     transform: scale(0.98);
     background: #010304;
 }
+
+
+@media only screen and (max-width: 600px) {
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    body > h1 {
+        text-align: center;
+        margin: 1rem auto;
+    }
+
+    .main-container {
+        position: inherit;
+    }
+
+    .main-container > .search-container {
+        position: inherit;
+    }
+
+    #farenheit-button, #celsius-button {
+        display: none;
+    }
+  }
