@@ -14,53 +14,48 @@ const weatherIcons = {
     clouds: '<i class="las la-cloud"></i>'
 }
 
- function getWeather(query) {
+ async function getWeather(query) {
     if(query === '') {
         alert('Please enter a city')
         return
     } else {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}`, { mode: 'cors'} )
-        .then((res) => {
-            return res.json()
-        })
-        .then((data) => {
+        try {
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}`, { mode: 'cors'} )
+            const responseData = await response.json()
+
             const cityName = document.getElementById('city-name')
-            cityName.textContent = `${data.name}`
+            cityName.textContent = `${responseData.name}`
 
             const weather = document.getElementById('main-weather')
-            weather.textContent = `${data.weather[0].description}`
+            weather.textContent = `${responseData.weather[0].description}`
 
             const temp = document.getElementById('temperature')
-            temp.textContent = `${kToC(data.main.temp)} °C`
+            temp.textContent = `${kToC(responseData.main.temp)} °C`
 
             const feelsLike = document.getElementById('feels-like')
-            feelsLike.textContent = `Feels like: ${kToC(data.main.feels_like)} °C`
+            feelsLike.textContent = `Feels like: ${kToC(responseData.main.feels_like)} °C`
 
             const humidity = document.getElementById('humidity')
-            humidity.textContent = `Humidity: ${data.main.humidity} %`
+            humidity.textContent = `Humidity: ${responseData.main.humidity} %`
 
             farenheitBtn.style.display = 'block'
 
             farenheitBtn.addEventListener('click', function(){
-                feelsLike.textContent = `Feels Like: ${kToF(data.main.feels_like)} °F`
-                temp.textContent = `${kToF(data.main.temp)} °F`
+                feelsLike.textContent = `Feels Like: ${kToF(responseData.main.feels_like)} °F`
+                temp.textContent = `${kToF(responseData.main.temp)} °F`
 
                 farenheitBtn.style.display = 'none'
                 celsiusBtn.style.display = 'block'
             })
 
             celsiusBtn.addEventListener('click', function(){
-                feelsLike.textContent = `Feels Like: ${kToC(data.main.feels_like)} °C`
-                temp.textContent = `${kToC(data.main.temp)} °C`
+                feelsLike.textContent = `Feels Like: ${kToC(responseData.main.feels_like)} °C`
+                temp.textContent = `${kToC(responseData.main.temp)} °C`
 
                 farenheitBtn.style.display = 'block'
                 celsiusBtn.style.display = 'none'
             })
-
-            return data.weather[0].description
-        })    
-        .then((description) => {
-            switch(description) {
+            switch(responseData.weather[0].description) {
                 case 'broken clouds':
                     icon.innerHTML = weatherIcons.clouds
                     break;
@@ -91,7 +86,10 @@ const weatherIcons = {
                     default:
                     icon.innerHTML = ''
             }
-        })
+        }
+        catch(err) {
+            return err;
+        }
     }
 }
 
