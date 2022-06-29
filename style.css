@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+i {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+i.la-bolt, i.la-sun {
+    color: yellow;
+}
+
+i.la-cloud {
+    color: #999;
+}
+
+i.la-rain {
+    color: blue;
+}
+
+
+body {
+    height: 100vh;
+    background: url(/han-tu-M8b7NRHPwhI-unsplash.jpg) center/cover no-repeat;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+}
+
+body > h1 {
+    text-align: left;
+    margin: 2rem 0 0 2rem;
+}
+
+.main-container {
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Search container */
+
+.main-container > .search-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 2rem;
+    top: 50px;
+}
+
+.main-container > .search-container > label {
+    font-size: 1.5rem;
+}
+
+.main-container > .search-container > input {
+    padding: 0.3rem 0;
+    width: 250px;
+    font-size: 1.2rem;
+}
+
+.main-container > .search-container > button, #farenheit-button, #celsius-button {
+    width: 70%;
+    padding: 0.3rem 0;
+    margin: 1rem auto;
+    font-size: 1.2rem;
+    background: transparent;
+    color: white;
+    outline: 1px solid white;
+    border: none;
+    border-radius: 5px;
+}
+
+.main-container > .search-container > button:hover {
+    cursor: pointer;
+}
+
+/* Data container */
+
+.main-container > .data-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 200px;
+}
+
+.main-container > .data-container > span {
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+#farenheit-button, #celsius-button {
+    display: none;
+    margin-top: 1rem;
+}

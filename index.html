@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+    <title>Weather App</title>
+</head>
+<body>
+    <!-- header -->
+    <h1>Weather App</h1>
+    <!-- main content-->
+    <div class="main-container">
+        <!-- search group-->
+        <div class="search-container">
+            <label for="location-search">Search for a City</label>
+            <input id="city-input" type="search" name="" id="location-search">
+            <button id="search-button">Search</button>
+        </div>
+        <!-- data container-->
+        <div class="data-container">
+            <span class="icon"></span>
+            <span id="city-name"></span>
+            <span id="main-weather"></span>
+            <span id="temperature"></span>
+            <span id="feels-like"></span>
+            <span id="humidity"></span>
+            <button id="farenheit-button">Show farenheit</button>
+            <button id="celsius-button">Show celsius</button>
+        </div>
+    </div>
+</body>
+</html>
